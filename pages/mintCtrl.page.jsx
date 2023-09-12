@@ -52,7 +52,7 @@ function MintComponent() {
         } else {
             try {
                 //write(); // Call the write function
-                alert('This would have minted a NFT!');
+                alert(`This would have minted ${quantity} NFTs!`);
             } catch (error) {
                 console.error('Error while minting:', error);
                 alert('An error occurred while minting. Please try again later.');
