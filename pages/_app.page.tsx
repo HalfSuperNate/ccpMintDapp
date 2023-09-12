@@ -6,17 +6,17 @@ import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
   // arbitrum,
   // goerli,
-  // mainnet,
+  mainnet,
   // optimism,
-  polygon,
+  // polygon,
   // zora,
 } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
-    //mainnet,
-    polygon,
+    mainnet,
+    //polygon,
     //optimism,
     //arbitrum,
     //zora,
@@ -26,8 +26,8 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'EZ App',
-  projectId: '6f1efd1df9ba44f8562647e263578943',
+  appName: 'CCP App',
+  projectId: '9f2dab663a5c356de0818e16c54ec7fb',
   chains,
 });
 
@@ -41,7 +41,7 @@ const wagmiConfig = createConfig({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains}>
+      <RainbowKitProvider modalSize="compact" chains={chains}>
         <Component {...pageProps} />
       </RainbowKitProvider>
     </WagmiConfig>

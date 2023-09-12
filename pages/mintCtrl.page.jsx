@@ -20,9 +20,21 @@ function MintComponent() {
         value: (parseInt(_bCost) * quantity).toString(),
     });
 
-    const handleQuantityChange = (event) => {
-        const newQuantity = Math.min(parseInt(event.target.value), 10);
-        setQuantity(newQuantity);
+    // const handleQuantityChange = (event) => {
+    //     const newQuantity = Math.min(parseInt(event.target.value), 10);
+    //     setQuantity(newQuantity);
+    // };
+
+    const handleDecreaseQuantity = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    };
+
+    const handleIncreaseQuantity = () => {
+        if (quantity < 15) {
+            setQuantity(quantity + 1);
+        }
     };
 
     const handleWalletChange = (event) => {
@@ -49,19 +61,29 @@ function MintComponent() {
 
     return (
         <div className={styles.mintContainer}>
-            <h2>Mint NFTs</h2>
-            <div>
-                <label>Amount: </label>
-                <input
-                    type="number"
-                    value={quantity}
-                    onChange={handleQuantityChange}
-                    min={1}
-                    max={10}
+            <div className={styles.quantityControl}>
+                <img
+                    src="/left_arrow.png"
+                    alt="Decrease Quantity"
+                    onClick={handleDecreaseQuantity}
+                    className={styles.arrowButton}
+                    disabled={quantity === 1}
+                />
+                <img
+                    src={`/${quantity}.png`} // Assuming quantity images are named 1.png, 2.png, etc.
+                    alt={`Quantity: ${quantity}`}
+                    className={styles.quantityImage}
+                />
+                <img
+                    src="/right_arrow.png"
+                    alt="Increase Quantity"
+                    onClick={handleIncreaseQuantity}
+                    className={styles.arrowButton}
+                    disabled={quantity === 15}
                 />
             </div>
-            <div>
-                <label>Mint To Wallet: </label>
+            <div className={styles.mintToControl}>
+                <br></br>
                 <input
                     type="text"
                     value={walletAddress}
@@ -69,17 +91,18 @@ function MintComponent() {
                     placeholder="Wallet Address"
                 />
             </div>
-            <div className={styles.mintImage}>
-                {isLoading ? (
-                    <img src='/loading.gif' alt="Loading" /> // Show loading GIF
-                ) : isSuccess ? (
-                    <img src='/success.png' alt="Mint Success" /> // Show success image
-                ) : null}
-            </div>
             {mounted && _bCost >= 0 ? (
-                <p>Total: {((parseInt(_bCost) * quantity) / 10**18)} Matic</p>
+                <p>Total: {((parseInt(_bCost) * quantity) / 10**18)} Eth</p>
             ) : null}
-            <button className={styles.mintBtn} onClick={handleMintClick}>Mint</button>
+            <div className={styles.mintButton}>
+                <img
+                    src="/mint.png"
+                    alt="Mint Button"
+                    onClick={handleMintClick}
+                    className={styles.arrowButton}
+                />
+            </div>
+            
         </div>
     );
 }

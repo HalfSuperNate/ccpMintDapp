@@ -7,6 +7,10 @@
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
 }
 
@@ -21,11 +25,52 @@
   font-size: 0.6rem;
 }
 
+.web3Container {
+  margin: 8px 8px 0px;
+  background-image: url(../public/cyber.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 65%;
+  min-width: 300px;
+}
+
+.logoContainer {
+  position: fixed;
+  width: 10%;
+  height: 10%;
+}
+
+.ccpLogo {
+  width: 100%;
+}
+
 .rainbowContainer {
-  width: 100vw;
+  margin: 0px 8px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: stretch;
+  background-image: url(../public/connect.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.connected {
+  /* Background image for connected state */
+  background-image: url('../public/connected.png');
+  /* Other styles for the container in the connected state */
+}
+
+.rainbowContainer button {
+  --rk-colors-accentColor: rgba(255, 255, 255, 0);
+  --rk-colors-connectButtonBackground: rgba(0, 0, 0, 0);
+  width: 210px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .detailsContainer {
@@ -42,31 +87,39 @@
   font-size: 0.6rem;
 }
 
-.mintContainer, .swapContainer{
-  width: 100vw;
-  display: flex;
+.mintContainer {
+  display: flex; /* Use Flexbox */
+  align-items: center; /* Vertically align elements */
   flex-direction: column;
   justify-content: center;
+  height: 60%;
+}
+
+.quantityControl {
+  display: flex;
   align-items: center;
-  font-size: 1em;
-  word-break: break-all;
+  justify-content: center;
+  width: 100%;
+  height: 40%;
 }
 
-.mintContainer h2, .swapContainer h2{
-  margin-bottom: 4px;
-  text-decoration: underline;
+.arrowButton {
+  margin: 10px 10px 0px;
+  height: 30%;
+  cursor: pointer;
 }
 
-.mintContainer p, .swapContainer p{
-  text-align: center;
+.quantityImage {
+  height: 30%;
+  width: auto;
 }
 
-.mintContainer div, .swapContainer div{
-  margin: 4px 2px;
+.mintToControl {
+  width: 60%;
 }
 
-.swapContainer div{
-  margin: 4px 20px;
+.mintToControl input {
+  width: 100%;
 }
 
 .mintImage{
@@ -75,12 +128,6 @@
 
 .mintImage img{
   width: 100%;
-}
-
-.swapImage {
-  display: flex;
-  align-items: center; /* Align items vertically within the container */
-  gap: 20px; /* Add some spacing between the images */
 }
 
 .imageContainer {
@@ -93,13 +140,8 @@
   box-shadow: 0px 14px 10px rgba(0, 0, 0, 0.3);
 }
 
-.mintBtn, .swapBtn{
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: ghostwhite;
-  background-color: rgb(131, 26, 163);
-  margin: 10px 2px;
-  width: 60px;
-  border-radius: 10px;
-  box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.3);
+.mintButton {
+  margin: 10px 10px 0px;
+  height: 30%;
   cursor: pointer;
 }
