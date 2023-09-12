@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAccount, useContractWrite } from 'wagmi';
 import { useIsMounted } from './useIsMounted';
 import { BatchCost } from './readContract';
-import { _abi } from './abiGet';
+import { _abi, _abiAddress } from './abiGet';
 import styles from '../styles/Home.module.css';
 
 function MintComponent() {
@@ -13,7 +13,7 @@ function MintComponent() {
     const [walletAddress, setWalletAddress] = useState('');
 
     const { data, isLoading, isSuccess, write } = useContractWrite({
-        address: '0x60c3Fc3819d6b7c1096338Cf6149F1770B6Af161',
+        address: _abiAddress,
         abi: _abi,
         functionName: '_mintInOrder',
         args: [walletAddress, quantity, 0, []],
@@ -51,7 +51,8 @@ function MintComponent() {
             setWalletAddress(address);
         } else {
             try {
-                write(); // Call the write function
+                //write(); // Call the write function
+                alert('This would have minted a NFT!');
             } catch (error) {
                 console.error('Error while minting:', error);
                 alert('An error occurred while minting. Please try again later.');

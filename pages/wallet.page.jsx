@@ -23,6 +23,11 @@ function Wallet() {
 
     return (
         <div className={styles.web3Container}>
+            <img
+                src="/cyborg.png"
+                alt="Citizen"
+                className={styles.citizen}
+            />
             <div className={styles.logoContainer}>
                 <img
                     src="/icon.png"

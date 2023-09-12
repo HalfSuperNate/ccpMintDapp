@@ -1,9 +1,9 @@
 import { useContractRead } from 'wagmi'; 
-import { _abi } from './abiGet'; 
+import { _abi, _abiAddress } from './abiGet'; 
 
 export function BatchSupply(batch) {
     const { data, isError, isLoading } = useContractRead({
-        address: '0x60c3Fc3819d6b7c1096338Cf6149F1770B6Af161',
+        address: _abiAddress,
         abi: _abi,
         functionName: 'tokenNextToMintInBatch',
         args: [batch],
@@ -14,7 +14,7 @@ export function BatchSupply(batch) {
 
 export function BatchCost(batch, _sender) {
     const { data, isError, isLoading } = useContractRead({
-        address: '0x60c3Fc3819d6b7c1096338Cf6149F1770B6Af161',
+        address: _abiAddress,
         abi: _abi,
         functionName: '_cost',
         args: [batch, false, 0],
@@ -26,7 +26,7 @@ export function BatchCost(batch, _sender) {
 
 export function GetRoll(_id) {
     const { data, isError, isLoading } = useContractRead({
-        address: '0x60c3Fc3819d6b7c1096338Cf6149F1770B6Af161',
+        address: _abiAddress,
         abi: _abi,
         functionName: 'roll',
         args: [_id],
@@ -37,7 +37,7 @@ export function GetRoll(_id) {
 
 export function SwapCost(batch, _sender) {
     const { data, isError, isLoading } = useContractRead({
-        address: '0x60c3Fc3819d6b7c1096338Cf6149F1770B6Af161',
+        address: _abiAddress,
         abi: _abi,
         functionName: 'rollCost',
         args: [batch],
@@ -52,7 +52,7 @@ export function SwapCost(batch, _sender) {
 
 export function IsHolder(_sender, _id) {
     const { data, isError, isLoading } = useContractRead({
-        address: '0x60c3Fc3819d6b7c1096338Cf6149F1770B6Af161',
+        address: _abiAddress,
         abi: _abi,
         functionName: 'balanceOf',
         args: [_sender, _id],
@@ -63,7 +63,7 @@ export function IsHolder(_sender, _id) {
 
 export function Exists(_id) {
     const { data, isError, isLoading } = useContractRead({
-        address: '0x60c3Fc3819d6b7c1096338Cf6149F1770B6Af161',
+        address: _abiAddress,
         abi: _abi,
         functionName: 'exists',
         args: [_id],
@@ -74,7 +74,7 @@ export function Exists(_id) {
 
 export function AdminCheck(_sender) {
     const { data, isError, isLoading } = useContractRead({
-        address: '0x60c3Fc3819d6b7c1096338Cf6149F1770B6Af161',
+        address: _abiAddress,
         abi: _abi,
         functionName: 'checkIfAdmin',
         args: [],
@@ -86,7 +86,7 @@ export function AdminCheck(_sender) {
 
 export async function GetMetadata(_id) {
     const { data: uri, isError, isLoading } = useContractRead({
-        address: '0x60c3Fc3819d6b7c1096338Cf6149F1770B6Af161',
+        address: _abiAddress,
         abi: _abi,
         functionName: 'uri',
         args: [_id],
