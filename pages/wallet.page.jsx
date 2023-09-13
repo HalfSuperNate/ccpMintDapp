@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useAccount } from 'wagmi';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import MintComponent from './mintCtrl.page';
+import { useCitizen, toggleUseCitizen } from './imageSelector';
 import styles from '../styles/Home.module.css';
-
+  
 function Wallet() {
   const { address } = useAccount();
   const [isConnected, setIsConnected] = useState(false);
@@ -16,7 +17,10 @@ function Wallet() {
 
   const handleImageChange = (event) => {
     // Update the selected image based on the radio button value
-    setSelectedImage(event.target.value);
+    const newImage = event.target.value;
+    setSelectedImage(newImage);
+
+    toggleUseCitizen();
   };
 
   return (

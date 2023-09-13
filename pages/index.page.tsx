@@ -21,8 +21,8 @@ const Home: NextPage = () => {
 
       <footer className={styles.footer}>
         <Link href="https://www.cryptocloudpunks.com/" rel="noopener noreferrer" target="_blank">CCP Website |</Link>
-        <Link href="https://etherscan.io/address/0xab32711cc05ec0b240a4fda8d2809d2bf6cd24ff" rel="noopener noreferrer" target="_blank"> Contract |</Link>
-        <Link href="https://opensea.io/assets/ethereum/0xab32711cc05ec0b240a4fda8d2809d2bf6cd24ff/" rel="noopener noreferrer" target="_blank"> Collection</Link>
+        <Link href="https://etherscan.io/address/0xc05B2990B0d1103CC08Df5bf7cde9B58ac36D8fF" rel="noopener noreferrer" target="_blank"> Contract |</Link>
+        <Link href="https://opensea.io/assets/ethereum/0xc05B2990B0d1103CC08Df5bf7cde9B58ac36D8fF/" rel="noopener noreferrer" target="_blank"> Collection</Link>
       </footer>
     </div>
   );
