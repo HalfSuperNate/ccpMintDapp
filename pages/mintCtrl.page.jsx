@@ -14,7 +14,6 @@ function GetProof(address) {
     const merkleTree = new MerkleTree(walletAddresses, keccak256, { sortPairs: true });
 
     // Get the index of the wallet address you want to generate a proof for
-    let walletToProveIndex = -1; //indicating not found
     const wallet = walletAddresses.find(w => w.toLowerCase() === keccak256(address));
     if(wallet){
         // Generate a proof for the specified wallet;
@@ -74,8 +73,8 @@ function MintComponent() {
             setWalletAddress(address);
         } else {
             try {
-                //write(); // Call the write function
-                alert(`This would have minted ${quantity} NFTs!`);
+                write(); // Call the write function
+                //alert(`This would have minted ${quantity} NFTs!`);
             } catch (error) {
                 console.error('Error while minting:', error);
                 alert('An error occurred while minting. Please try again later.');
