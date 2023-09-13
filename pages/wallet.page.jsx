@@ -3,6 +3,8 @@ import { useAccount } from 'wagmi';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import MintComponent from './mintCtrl.page';
 import { useCitizen, toggleUseCitizen } from './imageSelector';
+import { GetCollectionLink } from './abiGet';
+
 import styles from '../styles/Home.module.css';
   
 function Wallet() {
@@ -21,6 +23,7 @@ function Wallet() {
     setSelectedImage(newImage);
 
     toggleUseCitizen();
+    GetCollectionLink();
   };
 
   return (

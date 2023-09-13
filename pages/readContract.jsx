@@ -24,6 +24,29 @@ export function BatchCost(batch, onTier, _tier, _sender) {
     return data;
 }
 
+export function BatchSupplyCY(batch) {
+    const { data, isError, isLoading } = useContractRead({
+        address: '0x82895fE2945A8B19c5E511E5AA90Da3Aa27331eA',
+        abi: _abi,
+        functionName: 'getFixedArrayFromBatch',
+        args: [0,batch],
+    });
+
+    return data;
+}
+
+export function BatchCostCY(batch, onTier, _tier, _sender) {
+    const { data, isError, isLoading } = useContractRead({
+        address: '0x82895fE2945A8B19c5E511E5AA90Da3Aa27331eA',
+        abi: _abi,
+        functionName: '_cost',
+        args: [batch, onTier, _tier],
+        account: _sender,
+    });
+
+    return data;
+}
+
 export function GetRoll(_id) {
     const { data, isError, isLoading } = useContractRead({
         address: _abiAddress,

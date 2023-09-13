@@ -4,6 +4,8 @@ import styles from '../styles/Home.module.css';
 import React from 'react';
 import Wallet from './wallet.page';
 import Link from 'next/link';
+import { useCitizen } from './imageSelector';
+import { GetCollectionLink } from './abiGet';
 
 const Home: NextPage = () => {
   return (
@@ -21,8 +23,12 @@ const Home: NextPage = () => {
 
       <footer className={styles.footer}>
         <Link href="https://www.cryptocloudpunks.com/" rel="noopener noreferrer" target="_blank">CCP Website |</Link>
-        <Link href="https://etherscan.io/address/0xc05B2990B0d1103CC08Df5bf7cde9B58ac36D8fF" rel="noopener noreferrer" target="_blank"> Contract |</Link>
-        <Link href="https://opensea.io/assets/ethereum/0xc05B2990B0d1103CC08Df5bf7cde9B58ac36D8fF/" rel="noopener noreferrer" target="_blank"> Collection</Link>
+        
+        <Link href="https://etherscan.io/address/0xc05B2990B0d1103CC08Df5bf7cde9B58ac36D8fF" rel="noopener noreferrer" target="_blank"> Citizen Contract :</Link>
+        <Link href="https://looksrare.org/collections/0xc05B2990B0d1103CC08Df5bf7cde9B58ac36D8fF" rel="noopener noreferrer" target="_blank"> Collection |</Link>
+
+        <Link href="https://etherscan.io/address/0x82895fE2945A8B19c5E511E5AA90Da3Aa27331eA" rel="noopener noreferrer" target="_blank"> Cyborg Contract :</Link>
+        <Link href="https://looksrare.org/collections/0x82895fE2945A8B19c5E511E5AA90Da3Aa27331eA" rel="noopener noreferrer" target="_blank"> Collection</Link>
       </footer>
     </div>
   );

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useAccount, useContractWrite } from 'wagmi';
 import { useIsMounted } from './useIsMounted';
-import { BatchSupply, BatchCost } from './readContract';
-import { _abi, _abiAddress, _tierWallets } from './abiGet';
+import { BatchSupply, BatchCost, BatchSupplyCY, BatchCostCY } from './readContract';
+import { _abi, _abiAddress, _tierWallets, GetContractAddy } from './abiGet';
 import { MerkleTree } from 'merkletreejs';
 import { keccak256 } from 'ethers';
+import { useCitizen } from './imageSelector';
 import styles from '../styles/Home.module.css';
 
 function GetProof(address) {
@@ -37,9 +38,11 @@ function MintComponent() {
     const isOnTier = proof.length > 0;
     const _bCost = BatchCost(0, isOnTier, 0, address);
     const _bSupply = BatchSupply(0);
+    const _bCostCY = BatchCostCY(0, isOnTier, 0, address);
+    const _bSupplyCY = BatchSupplyCY(0);
 
     const { data, isLoading, isSuccess, write } = useContractWrite({
-        address: _abiAddress,
+        address: GetContractAddy(),
         abi: _abi,
         functionName: '_mintInOrder',
         args: [walletAddress, quantity, 0, proof],
@@ -115,10 +118,15 @@ function MintComponent() {
                 />
             </div>
             <div className={styles.mintCostSupply}>
-                {mounted && _bCost >= 0 ? (
+                {mounted && _bCost >= 0 && useCitizen ? (
                     <p>Total: {((parseInt(_bCost) * quantity) / 10**18)} Eth</p>
                 ) : null}
-                {mounted ? _bSupply && <p>Supply: {((JSON.parse(_bSupply)[2]) - 1)} / 4000</p> : null}
+                {mounted && useCitizen ? _bSupply && <p>Supply: {((JSON.parse(_bSupply)[2]) - 1)} / 4000</p> : null}
+                
+                {mounted && _bCostCY >= 0 && !useCitizen ? (
+                    <p>Total: {((parseInt(_bCostCY) * quantity) / 10**18)} Eth</p>
+                ) : null}
+                {mounted && !useCitizen ? _bSupplyCY && <p>Supply: {((JSON.parse(_bSupplyCY)[2]) - 1)} / 4000</p> : null}
             </div>
             <div className={styles.mintButton}>
                 <img
