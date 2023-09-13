@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAccount, useContractWrite } from 'wagmi';
 import { useIsMounted } from './useIsMounted';
-import { BatchCost } from './readContract';
+import { BatchSupply, BatchCost } from './readContract';
 import { _abi, _abiAddress } from './abiGet';
 import styles from '../styles/Home.module.css';
 
@@ -9,6 +9,7 @@ function MintComponent() {
     const { address } = useAccount();
     const mounted = useIsMounted();
     const _bCost = BatchCost(0, address);
+    const _bSupply = BatchSupply(0);
     const [quantity, setQuantity] = useState(1);
     const [walletAddress, setWalletAddress] = useState('');
 
@@ -19,11 +20,6 @@ function MintComponent() {
         args: [walletAddress, quantity, 0, []],
         value: (parseInt(_bCost) * quantity).toString(),
     });
-
-    // const handleQuantityChange = (event) => {
-    //     const newQuantity = Math.min(parseInt(event.target.value), 10);
-    //     setQuantity(newQuantity);
-    // };
 
     const handleDecreaseQuantity = () => {
         if (quantity > 1) {
@@ -71,7 +67,7 @@ function MintComponent() {
                     disabled={quantity === 1}
                 />
                 <img
-                    src={`/${quantity}.png`} // Assuming quantity images are named 1.png, 2.png, etc.
+                    src={`/${quantity}.png`}
                     alt={`Quantity: ${quantity}`}
                     className={styles.quantityImage}
                 />
@@ -92,15 +88,18 @@ function MintComponent() {
                     placeholder="Wallet Address"
                 />
             </div>
-            {mounted && _bCost >= 0 ? (
-                <p>Total: {((parseInt(_bCost) * quantity) / 10**18)} Eth</p>
-            ) : null}
+            <div className={styles.mintCostSupply}>
+                {mounted && _bCost >= 0 ? (
+                    <p>Total: {((parseInt(_bCost) * quantity) / 10**18)} Eth</p>
+                ) : null}
+                {mounted ? _bSupply && <p>Supply: {(parseInt(_bSupply) - 1)} / 4000</p> : null}
+            </div>
             <div className={styles.mintButton}>
                 <img
                     src="/mint.png"
                     alt="Mint Button"
                     onClick={handleMintClick}
-                    className={styles.arrowButton}
+                    className={styles.mintButton}
                 />
             </div>
             

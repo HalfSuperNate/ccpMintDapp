@@ -2,26 +2,28 @@ import { useContractRead } from 'wagmi';
 import { _abi, _abiAddress } from './abiGet'; 
 
 export function BatchSupply(batch) {
-    const { data, isError, isLoading } = useContractRead({
-        address: _abiAddress,
-        abi: _abi,
-        functionName: 'tokenNextToMintInBatch',
-        args: [batch],
-    });
+    // const { data, isError, isLoading } = useContractRead({
+    //     address: _abiAddress,
+    //     abi: _abi,
+    //     functionName: 'tokenNextToMintInBatch',
+    //     args: [batch],
+    // });
 
-    return data;
+    // return data;
+    return 4001;
 }
 
 export function BatchCost(batch, _sender) {
-    const { data, isError, isLoading } = useContractRead({
-        address: _abiAddress,
-        abi: _abi,
-        functionName: '_cost',
-        args: [batch, false, 0],
-        account: _sender,
-    });
+    // const { data, isError, isLoading } = useContractRead({
+    //     address: _abiAddress,
+    //     abi: _abi,
+    //     functionName: '_cost',
+    //     args: [batch, false, 0],
+    //     account: _sender,
+    // });
 
-    return data;
+    // return data;
+    return 30000000000000000;
 }
 
 export function GetRoll(_id) {

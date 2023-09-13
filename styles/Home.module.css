@@ -26,28 +26,20 @@
 }
 
 .web3Container {
-  margin: 8px 8px 0px;
+  margin: 0px;
   background-image: url(../public/cyber.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
-  width: 65%;
+  width: 100vw;
   min-width: 300px;
   position: relative;
   overflow: hidden;
 }
 
-.citizen {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
-
 .logoContainer {
+  margin-left: 15px;
   position: fixed;
   width: 10%;
   height: 10%;
@@ -58,7 +50,7 @@
 }
 
 .rainbowContainer {
-  margin: 0px 8px;
+  margin: 15px 59px;
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
@@ -84,26 +76,33 @@
   justify-content: flex-end;
 }
 
-.detailsContainer {
-  width: 100vw;
+.radioContainer {
+  margin-top: 10px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  margin: 8px 0px;
-  font-size: 1em;
-  word-break: break-all;
 }
 
-.detailsContainer p {
-  font-size: 0.6rem;
+.featureImageContainer {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featureImage {
+  width: 50vw;
 }
 
 .mintContainer {
-  display: flex; /* Use Flexbox */
-  align-items: center; /* Vertically align elements */
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  height: 60%;
+  height: 50%;
 }
 
 .quantityControl {
@@ -111,18 +110,25 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 40%;
+  height: 20%;
 }
 
 .arrowButton {
   margin: 10px 10px 0px;
-  height: 30%;
+  width: auto;
+  height: 100%;
   cursor: pointer;
 }
 
 .quantityImage {
-  height: 30%;
   width: auto;
+  height: 100%;
+}
+
+.mintButton {
+  margin: 5px;
+  height: 30%;
+  cursor: pointer;
 }
 
 .mintToControl {
@@ -131,28 +137,16 @@
 
 .mintToControl input {
   width: 100%;
+  text-align: center;
+  font-size: 1em;
 }
 
-.mintImage{
-  max-height: 100vw;
-}
-
-.mintImage img{
-  width: 100%;
-}
-
-.imageContainer {
-  flex: 1; /* Distribute available space evenly among the images */
-}
-
-.imageContainer img {
-  border-radius: 10px;
-  max-width: 100%;
-  box-shadow: 0px 14px 10px rgba(0, 0, 0, 0.3);
-}
-
-.mintButton {
-  margin: 10px 10px 0px;
-  height: 30%;
-  cursor: pointer;
+.mintCostSupply {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  text-align: center;
 }
