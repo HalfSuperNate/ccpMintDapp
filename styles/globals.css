@@ -29,6 +29,11 @@ label {
   color: ghostwhite;
 }
 
+footer {
+  position: fixed;
+  bottom: 0px;
+}
+
 * {
   box-sizing: border-box;
 }
