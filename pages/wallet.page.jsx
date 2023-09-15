@@ -4,7 +4,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import MintComponent from './mintCtrl.page';
 import { useCitizen, toggleUseCitizen } from './imageSelector';
 import { GetCollectionLink } from './abiGet';
-
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
   
 function Wallet() {
@@ -29,7 +29,9 @@ function Wallet() {
   return (
     <div className={styles.web3Container}>
       <div className={styles.logoContainer}>
-        <img src="/icon.png" alt="CCP" className={styles.ccpLogo} />
+        <Link href="https://www.cryptocloudpunks.com/" rel="noopener noreferrer" target="_blank">
+            <img src="/icon.png" alt="CCP" className={styles.ccpLogo} />
+        </Link>
       </div>
       <div
         className={`${styles.rainbowContainer} ${
