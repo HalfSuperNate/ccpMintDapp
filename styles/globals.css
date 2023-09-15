@@ -32,6 +32,8 @@ label {
 footer {
   position: fixed;
   bottom: 0px;
+  margin: 0px;
+  font-size: calc(50vw * 0.05);
 }
 
 * {
