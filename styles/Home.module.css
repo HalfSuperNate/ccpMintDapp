@@ -55,16 +55,17 @@
 }
 
 .rainbowContainer {
-  margin: 15px 59px;
+  margin-right: 4px;
   display: flex;
-  justify-content: flex-end;
   flex-direction: row;
-  align-items: stretch;
   background-image: url(../public/connect.png);
   background-repeat: no-repeat;
   background-position: right;
   background-size: contain;
   cursor: pointer;
+  width: 35%;
+  position: fixed;
+  right: 0;
 }
 
 .connected {
@@ -76,13 +77,18 @@
 .rainbowContainer button {
   --rk-colors-accentColor: rgba(255, 255, 255, 0);
   --rk-colors-connectButtonBackground: rgba(0, 0, 0, 0);
-  width: 210px;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
+  position: relative;
+}
+
+.rainbowContainer div {
+  width: 100%;
 }
 
 .radioContainer {
-  margin-top: 10px;
+  margin-top: 58px;
   display: flex;
   align-items: center;
   flex-direction: row;
