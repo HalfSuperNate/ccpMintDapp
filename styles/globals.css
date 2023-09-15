@@ -33,8 +33,15 @@ footer {
   position: fixed;
   bottom: 0px;
   margin: 0px;
-  font-size: calc(50vw * 0.05);
+  font-size: clamp(8px, 16px, 20px);
 }
+
+@media (max-width: 768px) {
+  footer {
+    font-size: calc(50vw * 0.05); /* Set a fixed font size for phones */
+  }
+}
+  
 
 * {
   box-sizing: border-box;
